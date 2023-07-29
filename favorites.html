@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorite</title>
+    <link rel="stylesheet" href="style/favorites.css">
+    <title>Favorites</title>
 </head>
 <body>
     <header class="header">
@@ -19,8 +20,19 @@
             <img class="icons" src="images/search.png" alt="search" onclick="window.location.href = 'search.html';">
             <img class="icons" src="images/telephone-62.png" alt="userprofile" onclick="window.location.href = 'edit-profile.html';">
             <img class="icons" src="images/shopping-cart-removebg-preview.png" alt="shoppingbag" onclick="window.location.href = 'cartbag.html';">
-
         </div>
     </header>
+    <main>
+        <div class="mini-title">
+            <span>Favorites</span>
+        </div>
+        <table id = "tab" class="tab">
+            <tr>
+                <th id="name">Name</th>
+                <th id="description">Description</th>
+                <th id="category">Category</th>
+            </tr>
+        </table>
+    </main>
 </body>
 </html>
