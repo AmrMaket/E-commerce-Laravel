@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="style/index.css" rel="stylesheet">
+    <title>Bookstore</title>
 </head>
 <body>
+    <header class="header">
+        <div class="title">
+            <div class="logo-div">
+                <img class="logo" src="images/book_icon-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="shop-name">
+                Bookstore
+            </div>
+        </div>
+        <div class="header-icons">
+            <img class="icons" src="images/search.png" alt="search" onclick="window.location.href = 'search.html';">
+            <img class="icons" src="images/telephone-62.png" alt="userprofile" onclick="window.location.href = 'edit-profile.html';">
+            <img class="icons" src="images/book_icon-removebg-preview.png" alt="shoppingbag" onclick="window.location.href = 'cartbag.html';">
+
+        </div>
+        </header>
+        <div class="nav-bar">
+            <div class="nav-item" onclick="window.location.href = 'login-menu.html';">login</div>
+        </div>
+
+    <div class="all-wrap">
+        <div class="image-wrap">
+            
+            <div>
+                <img class="image-book" src="images/book_icon-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="shop-name1">
+                Bookstore
+            </div>
+        </div>
+        
+        <div class="signup-wrap">
+            
+            <div class="signup-top">
+                <h2 class="signup-header">Sign up</h2>
+                <div class="input-wrap">
+                    <input type="text" id="first-name" placeholder="First Name">
+                </div>
+                <div class="input-wrap">
+                    <input type="text" id="last-name" placeholder="Last Name">
+                </div>
+                <div class="input-wrap">
+                    <input type="text" id="user-name" placeholder="User Name">
+                </div>
+                <div class="input-wrap">
+                    <input type="email" id="email" placeholder="Email">
+                </div>
+                <!-- <div class="input-wrap">
+                    <input type="date" id="b-date" placeholder="Date Of Birth">
+                </div> -->
+                <div class="input-wrap">
+                    <input type="password" id="password" placeholder="Password">
+                </div>
     
+                <div class="input-wrap">
+                    <input type="checkbox" >
+                    <p class="terms">Accept the <span>Terms and Conditions</span></p>
+                </div>
+                
+                <div class="input-wrap">
+                    <button type="submit" id="submit-button">Submit</button>
+                    <p class="terms">Already have an account? <a style="text-decoration: none;" href="../frontend/login-menu.html"><span>Login</span></a></p>
+                </div>
+            </div>
+           
+        </div>
+        
+
+    </div>
+
 </body>
 </html>
