@@ -1,4 +1,5 @@
-const userNameInput = document.querySelector('#login-user-name');
+
+   const userNameInput = document.querySelector('#login-user-name');
    const passwordInput = document.querySelector('#login-password');
    const loginButton = document.querySelector('#login-button');
    
