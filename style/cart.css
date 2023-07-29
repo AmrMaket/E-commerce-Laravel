@@ -107,4 +107,9 @@
   width: 200px;
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  border: #000;
+}
+.search-cart:hover{
+  background-color: #A68D60;
+  cursor: pointer;
 }
