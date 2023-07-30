@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5EFED;
+    height: 20vh;
+  }
+  
+  .title {
+    height: 70%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  .logo-div {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .logo {
+    height: 70px;
+    width: auto;
+    padding-top: 40px;
+  }
+  
+  .shop-name {
+  
+    text-align: center;
+    font-size: 30px;
+    font-weight: 1000;
+    padding-top: 40px;
+  }
+  
+  
+  .nav-bar {
+    height: 30%;
+    width: auto;
+    background-color: #A68D60;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 600;
+    padding: 10px;
+   }
+  
+  .nav-item {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .header-icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .icons {
+    height: 20px;
+    width: auto;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .icons:hover {
+    transform: scale(1.2);
+  }
+  .mini-title{
+    background-color: #A68D60;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    justify-content: space-between;
+  }
+  
