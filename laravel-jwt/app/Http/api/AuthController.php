@@ -91,14 +91,14 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
         ]);
 
-        $user = new User();
+        $user = User::create;
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->username = $request->input('username');
@@ -112,17 +112,25 @@ class AuthController extends Controller
     public function signin(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
+            'username' => 'required|string',
+            'password' => 'required|string',
         ]);
         
-        $credentials = $request->only('username', 'password');
-
-        $user = User::where('username', $credentials['username'])->first();
+        $token = Auth::attempt($credentials);
         
-        if ($user && Hash::check($credentials['password'], $user->password)) {
-            Auth::login($user);
-            return response()->json(['status' => 'success', 'message' => 'User signed in successfully']);
+        if (!$token) {
+            return response()->json([
+                'message' => 'Unauthorized',
+            ], 401);
         }
+
+        $user = Auth::user();
+        return response()->json([
+            'user' => $user,
+            'authorization' => [
+                'token' => $token,
+                'type' => 'bearer',
+            ]
+        ]);
     }
 }
