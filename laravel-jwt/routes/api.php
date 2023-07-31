@@ -21,3 +21,6 @@ Route::get('/show_products', [ProductController::class, "getProducts"]);
 
 Route::post('/add_favorite', [FavoriteController::class, "addFavorites"]);
 Route::get('/show_favorite', [FavoriteController::class, "getFavorites"]);
+
+Route::post('/show_cart', [CartitemsController::class, "viewCart"]);
+Route::post('/add_cart', [CartitemsController::class, "addToCart"]);
