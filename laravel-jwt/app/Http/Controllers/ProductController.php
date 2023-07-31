@@ -21,9 +21,9 @@ class ProductController extends Controller
         $product->description = $request->description ? $request->description : $product->description;
         $product->price = $request->price ? $request->price : $product->price;
         $product->category = $request->category ? $request->category : $product->category;
-        $file_name = time()."product_image".".".$request->img_path->extension();
-        $request -> img_path->move(storage_path('images'),$file_name);
-        $product->img_path = storage_path("images")."\\".$file_name;
+        // $file_name = time() . "_product_image." . $request->file('img_path')->extension();
+        // $request -> img_path->move(storage_path('images'),$file_name);
+        // $product->img_path = storage_path("images")."\\".$file_name;
         $product->save();
 
         return json_encode(["products" => $product]);
