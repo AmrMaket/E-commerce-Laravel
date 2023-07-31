@@ -1,25 +1,16 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TodoController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\ProductController;
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
-    Route::post('register', 'register');
+    Route::post('signup', 'signup');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
-    Route::post('/signup', 'AuthController@signup');
-    Route::post('/signin', 'AuthController@signin');
 });
 
-Route::controller(TodoController::class)->group(function () {
-    Route::get('todos', 'index');
-    Route::post('todo', 'store');
-    Route::get('todo/{id}', 'show');
-    Route::put('todo/{id}', 'update');
-    Route::delete('todo/{id}', 'destroy');
-}); 
-
-
+Route::post('/add_update_product/{id?}', [ProductController::class, "addOrUpdateProduct"]);
+Route::post('/delete_product/{id}', [ProductController::class, "deleteProduct"]);
+Route::get('/show_products', [ProductController::class, "getProducts"]);
