@@ -63,7 +63,7 @@ namespace App\Models;
 class User extends Model
 {
     // Define the fillable fields for mass assignment
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password'];
 
     // Other model code here...
 }
