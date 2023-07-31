@@ -88,4 +88,41 @@ class AuthController extends Controller
         ]);
     }
 
+    public function signup(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        $user = new User();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+
+        return response()->json(['status' => 'success', 'message' => 'User registered successfully']);
+    }
+
+    public function signin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        
+        $credentials = $request->only('username', 'password');
+
+        $user = User::where('username', $credentials['username'])->first();
+        
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
+            return response()->json(['status' => 'success', 'message' => 'User signed in successfully']);
+        }
+    }
 }

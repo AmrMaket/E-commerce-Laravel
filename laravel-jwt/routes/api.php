@@ -10,7 +10,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
-
+    Route::post('/signup', 'AuthController@signup');
+    Route::post('/signin', 'AuthController@signin');
 });
 
 Route::controller(TodoController::class)->group(function () {
@@ -21,4 +22,4 @@ Route::controller(TodoController::class)->group(function () {
     Route::delete('todo/{id}', 'destroy');
 }); 
 
-Route::post('/signup', [SignupController::class, 'signup']);
+
