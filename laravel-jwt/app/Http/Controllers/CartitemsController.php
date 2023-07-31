@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+
 
 
 class CartController extends Controller
@@ -19,8 +22,18 @@ class CartController extends Controller
         return json_encode(["cart_products" => $cart]);
     }
 
-    function viewCart () 
-    {
-        
+    public function viewCart(Request $request){
+           $total = 0;
+    $carts = DB::table('carts')
+        ->join('products', 'products.id', '=', 'carts.product_id')
+        ->select('products.name', 'products.price')
+        ->where('carts.user_id', $request->user_id)
+        ->get();
+
+    foreach ($carts as $cart) {
+        $total += intval($cart->price);
+    }
+
+    return json_encode(["carts" => $carts, "total" => $total]);
     }
 }
