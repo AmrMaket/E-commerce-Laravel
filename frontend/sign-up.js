@@ -47,7 +47,6 @@ const userData = {
     lastName: lastNameInput.value,
     userName: userNameInput.value,
     email: emailInput.value,
-    // dateOfBirth: bDateInput.value,
     password: passwordInput.value,
   };
   const data = JSON.stringify(userData);
@@ -69,24 +68,20 @@ function signup() {
     let email = document.getElementById('email').value;
 
     let data = new FormData();
-    data.append('username', username);
-    data.append('password', password);
     data.append('first_name', first_name);
     data.append('last_name', last_name);
+    data.append('username', username);
     data.append('email', email);
+    data.append('password', password);
 
-    
-    axios({
-        "method": "post",
-        "url": "",
-        "data": data
-    }).then((result) => {
-        console.log(result)
-        if (result.data.status == "success") {
-            alert("You have signed up successfully!")
-        }
-    }).catch((err) => {
-        console.error(err)
-    });
-
-   }
+    axios.post('/api/signup', data)
+        .then((response) => {
+            console.log(response);
+            if (response.data.status === 'success') {
+                alert('You have signed up successfully!');
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+}

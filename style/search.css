@@ -82,11 +82,24 @@
     text-align: center;
   }
   #search-item:hover{
-    background-color: #F5EFED;
+    background-color: #A68D60;
   }
   .container{
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+  .product{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .p-details{
+    padding-left: 15px ;    
+    font: 1rem;
+  }
+  .product img{
+    height: 70px;
+    width: 70px;
+  }
