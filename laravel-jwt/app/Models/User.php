@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -55,3 +56,15 @@ class User extends Authenticatable
     }
 
 }
+namespace App\Models;
+
+
+
+class User extends Model
+{
+    // Define the fillable fields for mass assignment
+    protected $fillable = ['name', 'email', 'password'];
+
+    // Other model code here...
+}
+
